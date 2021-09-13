@@ -29,16 +29,21 @@ app.post('/settings', function (req, res) {
         warningLevel: req.body.warningLevel
     })
 
-    res.redirect('/');
+    
     console.log(settingsbill.getSettings())
     console.log(settingsbill.getSettings().smsCost)
+    res.redirect('/');
 })
 app.get('/', function (req, res) {
-    res.render('index')
+    res.render('index', {
+        totals: settingsbill.totals()
+       
+    })
 })
 
 app.post('/action', function (req, res) {
-
+    settingsbill.recordAction(req.body.billItemTypeWithSettings)
+    res.redirect('/');
 })
 
 app.get('/actions', function (req, res) {
