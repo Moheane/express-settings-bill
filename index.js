@@ -57,7 +57,7 @@ app.get('/actions/:type', function (req, res) {
 
 
 //configure and run server
-var PORT = 3009
+var PORT = process.env.PORT || 3009
 app.listen(PORT, function () {
     console.log("web server starting")
 })
