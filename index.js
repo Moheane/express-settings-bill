@@ -47,16 +47,17 @@ app.post('/action', function (req, res) {
 })
 
 app.get('/actions', function (req, res) {
-
+    res.render('actions', {actions: settingsbill.actions()})
 })
 
 app.get('/actions/:type', function (req, res) {
-
+    const acType = req.params.type;
+    res.render('actions', {actions: settingsbill.actionsFor(acType)})
 })
 
 
 //configure and run server
-var PORT = 3007
+var PORT = 3009
 app.listen(PORT, function () {
     console.log("web server starting")
 })
