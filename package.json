@@ -6,13 +6,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Moheane/express-settings-bill.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Moheane/express-settings-bill/issues"
+  },
+  "homepage": "https://github.com/Moheane/express-settings-bill#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "express-handlebars": "^5.3.3",
-    "handlebars": "^4.7.7"
+    "express-handlebars": "^5.3.3"
   }
 }
