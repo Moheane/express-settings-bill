@@ -1,5 +1,6 @@
-const settings_bill = require('../settings_bill');
-const assert = require('assert')
+let assert = require("assert")
+let settings_bill = require('../settings_bill');
+
 
 describe('hasReachedCriticalLevel function', function () {
     it('returns false', function () {
