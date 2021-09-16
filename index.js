@@ -42,7 +42,16 @@ app.get('/', function (req, res) {
 })
 
 app.post('/action', function (req, res) {
-    settingsbill.recordAction(req.body.billItemTypeWithSettings)
+     let totalSettings = document.querySelector('.totalSettings');
+
+
+    settingsbill.recordAction(req.body.billItemTypeWithSettings);
+    ;
+    settingsbill.hasReachedWarningLevel();
+
+    if (settingsbill.hasReachedCriticalLevel()=== true) {
+        totalSettings.classList.add('warning')
+    }
     res.redirect('/');
 })
 
