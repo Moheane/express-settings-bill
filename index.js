@@ -35,23 +35,28 @@ app.post('/settings', function (req, res) {
     res.redirect('/');
 })
 app.get('/', function (req, res) {
+    let setColor = '';
+    if (settingsbill.hasReachedWarningLevel()) {
+            setColor = 'warning'
+    }
+    if (settingsbill.hasReachedCriticalLevel()) {
+        setColor = 'danger'
+}
     res.render('index', {
-        totals: settingsbill.totals()
+        
+        totals: settingsbill.totals(),
+        setColor: setColor
        
     })
 })
 
 app.post('/action', function (req, res) {
-     let totalSettings = document.querySelector('.totalSettings');
+    
 
 
     settingsbill.recordAction(req.body.billItemTypeWithSettings);
     ;
-    settingsbill.hasReachedWarningLevel();
-
-    if (settingsbill.hasReachedCriticalLevel()=== true) {
-        totalSettings.classList.add('warning')
-    }
+ 
     res.redirect('/');
 })
 
@@ -68,5 +73,5 @@ app.get('/actions/:type', function (req, res) {
 //configure and run server
 var PORT = process.env.PORT || 3009
 app.listen(PORT, function () {
-    console.log("web server starting")
+    console.log("web server starting 3009")
 })
