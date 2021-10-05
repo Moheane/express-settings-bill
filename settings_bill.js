@@ -26,7 +26,8 @@ module.exports = function SettingsBill() {
 
     function recordAction(action) {
 
-        let cost = 0;
+        if (!hasReachedCriticalLevel()) {
+            let cost = 0;
         if (action === 'sms'){
             cost = smsCost;
         }
@@ -40,6 +41,7 @@ module.exports = function SettingsBill() {
             timestamp: new Date()
         });
     }
+        }
 
     function actions(){
         return actionList;
